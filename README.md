@@ -3,6 +3,9 @@ README
 
 ## Integrantes
 - Geovani Iruam Delfino Candido
+- Diego Rossi
+-Elizabete de Mendonça Eurico
+- Ana Clara Veiga.
 
 ## Variante do Domínio
 **Variante:** Gestão de Estacionamento
