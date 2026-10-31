@@ -22,3 +22,9 @@ README
 No terminal na raiz do projeto:
 ```cmd
 .\mvnw.cmd clean test
+
+## Processo de Evolução (Etapa 2)
+1. **Evolução do Modelo e Invariantes:** Adicionada validação na classe `Estacionamento` para impedir a entrada de veículos nulos, protegendo o estado do sistema.
+2. **Polimorfismo e Genéricos:** Transformação de `Veiculo` em classe abstrata com `calcularTaxa()` e criação da classe `Repositorio<T>` para gerenciar listas genéricas.
+3. **Tratamento de Falhas:** Criação da `EstacionamentoException` para isolar os erros de regras de negócio.
+4. **Testes de Evolução:** Criação do `EstacionamentoTest` usando JUnit para validar a invariante de veículo nulo.
