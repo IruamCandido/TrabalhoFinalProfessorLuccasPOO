@@ -1,7 +1,7 @@
 package br.edu.fagammon.estacionamento.dominio;
 
 public class Estacionamento {
-    private Repositorio<Veiculo> veiculos = new Repositorio<>(); 
+    private final Repositorio<Veiculo> veiculos = new Repositorio<>(); 
     
     public void registrarEntrada(Veiculo v) throws Exception {
         if (v == null) {

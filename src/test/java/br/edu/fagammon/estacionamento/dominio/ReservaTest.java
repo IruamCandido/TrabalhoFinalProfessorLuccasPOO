@@ -41,7 +41,8 @@ class ReservaTest {
             LocalDateTime.of(2026, 10, 20, 10, 0)
         );
 
-        assertThrows(RegraNegocioException.class, () -> new Reserva("RES-002", vaga, veiculo, periodo));
+        RegraNegocioException erro = assertThrows(RegraNegocioException.class, () -> new Reserva("RES-002", vaga, veiculo, periodo));
+        assertNotNull(erro);
     }
 
     @Test
@@ -54,7 +55,8 @@ class ReservaTest {
             LocalDateTime.of(2026, 10, 20, 10, 0)
         );
 
-        assertThrows(RegraNegocioException.class, () -> new Reserva("RES-003", vagaMoto, suv, periodo));
+        RegraNegocioException erro = assertThrows(RegraNegocioException.class, () -> new Reserva("RES-003", vagaMoto, suv, periodo));
+        assertNotNull(erro);
     }
 
     @Test

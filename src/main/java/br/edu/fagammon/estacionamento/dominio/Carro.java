@@ -1,7 +1,7 @@
 package br.edu.fagammon.estacionamento.dominio;
 
 public class Carro extends Veiculo {
-    private Porte porte;
+    private final Porte porte;
 
     public Carro(String placa, Porte porte) {
         super(placa);
