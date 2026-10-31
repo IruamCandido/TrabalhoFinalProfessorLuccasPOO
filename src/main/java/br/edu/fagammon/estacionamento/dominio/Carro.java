@@ -4,13 +4,8 @@ public class Carro extends Veiculo {
     private final Porte porte;
 
     public Carro(String placa, Porte porte) {
-        super(placa);
+        super(placa, new CalculoTaxaPadrao(10.0));
         this.porte = porte;
-    }
-
-    @Override
-    public double calcularTaxa() {
-        return 10.0; // Taxa fictícia para o teste
     }
 
     @Override

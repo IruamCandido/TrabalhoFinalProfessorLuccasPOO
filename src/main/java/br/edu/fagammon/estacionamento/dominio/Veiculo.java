@@ -1,14 +1,17 @@
 package br.edu.fagammon.estacionamento.dominio;
 
 public abstract class Veiculo {
-    protected String placa;
+    protected final String placa;
+    protected final CalculoTaxa calculoTaxa;
     
-    public Veiculo(String placa) { 
+    public Veiculo(String placa, CalculoTaxa calculoTaxa) { 
         this.placa = placa; 
+        this.calculoTaxa = calculoTaxa;
     }
     
-    public abstract double calcularTaxa();
+    public double calcularTaxa(long horas) {
+        return calculoTaxa.calcular(horas);
+    }
     
-    // Método adicionado para corrigir o erro no ficheiro Reserva.java
     public abstract Porte porte(); 
 }
