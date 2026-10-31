@@ -8,4 +8,7 @@ public abstract class Veiculo {
     }
     
     public abstract double calcularTaxa();
+    
+    // Método adicionado para corrigir o erro no ficheiro Reserva.java
+    public abstract Porte porte(); 
 }
