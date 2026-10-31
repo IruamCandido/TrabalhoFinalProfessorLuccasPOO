@@ -1,12 +1,15 @@
 package br.edu.fagammon.estacionamento.dominio;
 
-import br.edu.fagammon.estacionamento.excecao.RegraNegocioException;
+import java.time.LocalDateTime;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
-
-import static org.junit.jupiter.api.Assertions.*;
+import br.edu.fagammon.estacionamento.excecao.RegraNegocioException;
 
 class ReservaTest {
 
@@ -14,7 +17,7 @@ class ReservaTest {
     @DisplayName("Deve criar reserva com sucesso quando os dados forem válidos")
     void deveCriarReservaValida() {
         Vaga vaga = new Vaga("A101", TipoVaga.PADRAO);
-        Veiculo veiculo = new Veiculo("ABC1D23", Porte.MEDIO);
+        Veiculo veiculo = new Carro("ABC1D23", Porte.MEDIO);
         Periodo periodo = new Periodo(
             LocalDateTime.of(2026, 10, 20, 8, 0),
             LocalDateTime.of(2026, 10, 20, 18, 0)
@@ -32,7 +35,7 @@ class ReservaTest {
         Vaga vaga = new Vaga("A102", TipoVaga.PADRAO);
         vaga.desativar();
 
-        Veiculo veiculo = new Veiculo("XYZ9876", Porte.PEQUENO);
+        Veiculo veiculo = new Carro("XYZ9876", Porte.PEQUENO);
         Periodo periodo = new Periodo(
             LocalDateTime.of(2026, 10, 20, 8, 0),
             LocalDateTime.of(2026, 10, 20, 10, 0)
@@ -45,7 +48,7 @@ class ReservaTest {
     @DisplayName("Deve rejeitar veículo grande em vaga de moto")
     void deveRejeitarPorteIncompativel() {
         Vaga vagaMoto = new Vaga("M01", TipoVaga.MOTO);
-        Veiculo suv = new Veiculo("SUV1234", Porte.GRANDE);
+        Veiculo suv = new Carro("SUV1234", Porte.GRANDE);
         Periodo periodo = new Periodo(
             LocalDateTime.of(2026, 10, 20, 8, 0),
             LocalDateTime.of(2026, 10, 20, 10, 0)
@@ -58,7 +61,7 @@ class ReservaTest {
     @DisplayName("Deve identificar conflito de agenda para a mesma vaga")
     void deveIdentificarConflitoDeAgenda() {
         Vaga vaga = new Vaga("A101", TipoVaga.PADRAO);
-        Veiculo veiculo1 = new Veiculo("ABC1D23", Porte.MEDIO);
+        Veiculo veiculo1 = new Carro("ABC1D23", Porte.MEDIO);
         Periodo periodo1 = new Periodo(
             LocalDateTime.of(2026, 10, 20, 10, 0),
             LocalDateTime.of(2026, 10, 20, 12, 0)
